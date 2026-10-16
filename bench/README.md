@@ -1,6 +1,6 @@
 # Cenários de benchmark (TypeScript)
 
-**Estado:** medidor e cenário do Builder implementados. Cenário do Factory Method pendente (escopo do Matheus).
+**Estado:** medidor e cenários do Builder e do Factory Method implementados.
 
 Ponto de entrada: `bench/run.ts` (`npm run bench`).
 
@@ -37,6 +37,8 @@ A saída é JSON **bruto**, uma amostra por rodada, em `benchmark/resultados/<ce
 ```bash
 node --expose-gc --import tsx bench/isolado.ts builder builder-novo
 node --expose-gc --import tsx bench/isolado.ts builder builder-reutilizado
+node --expose-gc --import tsx bench/isolado.ts factory-method factory-method
+node --expose-gc --import tsx bench/isolado.ts factory-method manual
 ```
 
 O procedimento completo e um exemplo de leitura estão em [`benchmark/relatorio/analise-builder.md`](../benchmark/relatorio/analise-builder.md).
@@ -54,3 +56,11 @@ Três braços: `builder-novo` (uma instância por configuração), `builder-reut
 **Ressalva principal:** o braço `manual` não valida nada, então a diferença medida é custo do padrão **mais** custo da validação. Separar as parcelas exigiria um quarto braço com validação inline, que reescreveria R1–R5 em um segundo lugar — o que o padrão existe para evitar.
 
 A leitura dos números e a conclusão são do relatório do benchmark (escopo do Heitor); este diretório só produz o dado.
+
+## Cenário `factory-method`
+
+Dois braços: `factory-method` (`ClipCreator.submit`, com a operação no Creator abstrato e a criação no método-fábrica) e `manual` (os mesmos passos escritos em linha com `new Clip`, como ficaria cada serviço da Entrega 02 sem o padrão).
+
+**Diferença em relação ao cenário do Builder:** aqui o braço manual **não** pula validação. As regras F4 e F5 moram no construtor de `Clip`, então os dois braços as executam, e a moderação e as duas gravações no repositório também são as mesmas. A diferença medida é só a indireção do padrão.
+
+O cenário usa um repositório que guarda só o último conteúdo salvo: com o repositório em memória da demo, o mapa cresceria a cada iteração, e a memória retida e o trabalho do coletor de lixo entrariam na medida junto com o padrão. O repositório falso mede a indireção; não representa uma persistência real. Cada braço tem repositório, política e contador de ids próprios, para nenhum herdar estado do outro.

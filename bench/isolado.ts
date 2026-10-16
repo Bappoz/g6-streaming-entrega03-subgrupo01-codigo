@@ -1,4 +1,5 @@
 import { builderScenario } from "./cenarios/builder";
+import { factoryMethodScenario } from "./cenarios/factory-method";
 import { DEFAULT_OPTIONS, measureArm, type Scenario } from "./measure";
 
 /**
@@ -13,7 +14,7 @@ import { DEFAULT_OPTIONS, measureArm, type Scenario } from "./measure";
  * Uso:
  *   node --expose-gc --import tsx bench/isolado.ts <cenario> <braco> [iterações] [rodadas]
  */
-const SCENARIOS: readonly Scenario[] = [builderScenario];
+const SCENARIOS: readonly Scenario[] = [builderScenario, factoryMethodScenario];
 
 const [scenarioName, armName, rawIterations, rawRounds] = process.argv.slice(2);
 const scenario = SCENARIOS.find((candidate) => candidate.name === scenarioName);

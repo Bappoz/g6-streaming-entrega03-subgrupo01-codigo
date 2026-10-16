@@ -5,14 +5,14 @@ Implementação dos **Padrões de Projeto GoF** do **Grupo 06, Turma 01** — FG
 Este repositório guarda **código, testes e benchmark**. A documentação (modelos UML, relatórios, vídeos, relatos de IA Generativa) fica no repositório principal:
 [2026.2-T01-_G6_ProjetoStreamingVideo_Entrega_03](https://github.com/UnBArqDsw2026-2-Turma01/2026.2-T01-_G6_ProjetoStreamingVideo_Entrega_03) · [GitHub Pages](https://unbarqdsw2026-2-turma01.github.io/2026.2-T01-_G6_ProjetoStreamingVideo_Entrega_03/).
 
-> **Estado:** Builder com Product, interface e ConcreteBuilder implementados e testados; Director, demonstrações e Factory Method pendentes.
+> **Estado:** Builder e Factory Method implementados, testados e com demonstração no terminal.
 
 ## Padrões
 
 | Categoria | Padrão | Pasta | Estado |
 | --- | --- | --- | --- |
-| Criacional | Builder | [`src/criacionais/builder`](src/criacionais/builder) | Product, Builder e ConcreteBuilder prontos; Director e demo pendentes |
-| Criacional | Factory Method | [`src/criacionais/factory-method`](src/criacionais/factory-method) | A implementar |
+| Criacional | Builder | [`src/criacionais/builder`](src/criacionais/builder) | Todos os participantes, demo e cenário de benchmark |
+| Criacional | Factory Method | [`src/criacionais/factory-method`](src/criacionais/factory-method) | Todos os participantes, demo e cenário de benchmark |
 
 ## Pré-requisitos
 

@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { builderScenario } from "./cenarios/builder";
+import { factoryMethodScenario } from "./cenarios/factory-method";
 import { DEFAULT_OPTIONS, type MeasureOptions, type Scenario, runScenario } from "./measure";
 
 /**
@@ -21,7 +22,7 @@ import { DEFAULT_OPTIONS, type MeasureOptions, type Scenario, runScenario } from
  *   npm run bench -- --iterations 50000 --rounds 5
  */
 
-const SCENARIOS: readonly Scenario[] = [builderScenario];
+const SCENARIOS: readonly Scenario[] = [builderScenario, factoryMethodScenario];
 
 const OUTPUT_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "benchmark", "resultados");
 
