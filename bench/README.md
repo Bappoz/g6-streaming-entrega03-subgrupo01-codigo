@@ -53,4 +53,4 @@ Três braços: `builder-novo` (uma instância por configuração), `builder-reut
 
 **Ressalva principal:** o braço `manual` não valida nada, então a diferença medida é custo do padrão **mais** custo da validação. Separar as parcelas exigiria um quarto braço com validação inline, que reescreveria R1–R5 em um segundo lugar — o que o padrão existe para evitar.
 
-A leitura dos números e a conclusão são do relatório do benchmark (escopo do Heitor); este diretório só produz o dado.
+A leitura dos números e a conclusão estão em [`benchmark/relatorio/`](../benchmark/relatorio): a investigação de D6 (Heitor) e o relatório de tempo e memória por N, gerado por `benchmark/gerar_relatorio.py`. Este diretório só produz o dado.
